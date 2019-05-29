@@ -16,10 +16,18 @@ LinkedList.prototype.addToHead = function(value) {
     this.head = newNode;
 };
 
-let ll = new LinkedList();
+LinkedList.prototype.addToTail = function(value) {
+  let newNode = new Node(value, null, this.tail);
+  if(this.tail) this.tail.next = newNode;
+  else this.head = newNode;
+  this.tail = newNode;
+}
 
-ll.addToHead(100);
-ll.addToHead(200);
-ll.addToHead(300);
+let myLL = new LinkedList();
 
-console.log(ll);
+myLL.addToTail(10);
+myLL.addToTail(20);
+myLL.addToTail(30);
+myLL.addToHead(100);
+
+console.log(myLL.tail.prev.prev.prev);
