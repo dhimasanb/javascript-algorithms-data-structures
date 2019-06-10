@@ -50,13 +50,29 @@ while (currentNode) {
 return null;
 }
 
+LinkedList.prototype.indexOf = function(value) {
+let indexes = [];
+let currentIndex = 0;
+let currentNode = this.head;
+while(currentNode) {
+  if (currentNode.value === value) {
+    indexes.push(currentIndex);
+  }
+  currentNode = currentNode.next;
+  currentIndex++;
+}
+return indexes;
+};
+
+
 let myLL = new LinkedList();
 
-myLL.addToHead(123);
-myLL.addToHead(70);
-myLL.addToHead('hello');
-myLL.addToTail(19);
-myLL.addToTail('world');
-myLL.addToTail(20);
+myLL.addToTail(1);
+myLL.addToTail(5);
+myLL.addToTail(3);
+myLL.addToTail(5);
+myLL.addToTail(8);
+myLL.addToTail(7);
+myLL.addToTail(5);
 
-console.log(myLL.search(10));
+console.log(myLL.indexOf(5));
