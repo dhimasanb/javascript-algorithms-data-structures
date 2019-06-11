@@ -20,6 +20,17 @@ BST.prototype.insert = function(value) {
   }
 };
 
+BST.prototype.contains = function(value) {
+  if (value === this.value) return true;
+  else if (value < this.value) {
+    if (!this.left) return false;
+    else return this.left.contains(value);
+  } else if (value > this.value) {
+    if (!this.right) return false;
+    else return this.right.contains(value);
+  }
+};
+
 let bst = new BST(50);
 
 bst.insert(30);
@@ -34,4 +45,4 @@ bst.insert(85);
 bst.insert(105);
 bst.insert(10);
 
-console.log(bst.right.right);
+console.log(bst.contains(30));
