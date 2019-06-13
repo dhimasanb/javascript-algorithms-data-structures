@@ -18,6 +18,22 @@ HashTable.prototype.hash = function(key) {
   return bucket;
 }
 
+HashTable.prototype.insert = function(key, value) {
+  let index = this.hash(key);
+  if (!this.buckets[index]) this.buckets[index] = new HashNode(key, value);
+  else {
+    let currentNode = this.buckets[index];
+    while (currentNode.next) {
+      currentNode = currentNode.next;
+    }
+    currentNode.next = new HashNode(key, value);
+  }
+}
+
 let myHT = new HashTable(30);
 
-console.log(myHT.hash('Becca'));
+myHT.insert('Dean', 'dean@gmail.com');
+myHT.insert('Megan', 'megan@gmail.com');
+myHT.insert('Dane', 'dane@yahoo.com');
+
+console.log(myHT.buckets);
