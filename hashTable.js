@@ -50,6 +50,20 @@ HashTable.prototype.get = function(key) {
   }
 }
 
+HashTable.prototype.retrieveAll = function() {
+    let allNodes = [];
+    for (let i = 0; i < this.numBuckets; i++) {
+        let currentNode = this.buckets[i];
+        console.log('awal', currentNode);
+        while(currentNode) {
+            console.log('while', currentNode);
+            allNodes.push(currentNode);
+            currentNode = currentNode.next;
+        }
+    }
+    return allNodes;
+}
+
 let myHT = new HashTable(30);
 
 myHT.insert('Dean', 'dean@gmail.com');
