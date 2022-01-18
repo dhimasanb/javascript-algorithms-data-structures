@@ -15,4 +15,4 @@ function reverseWords(string) {
 
 reverseWords("this is a string of words"); // siht si a gnirts fo sdrow
 
-reverseWords("Dhimas Akbar"); // samihD rabkA
+reverseWords("Deni Tompel"); // samihD rabkA
